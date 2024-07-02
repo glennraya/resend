@@ -76,3 +76,7 @@
         @apply bg-background text-foreground;
     }
 }
+
+.container-shadow {
+    @apply shadow-[0px_1px_3px_rgba(0,0,0,.1)];
+}

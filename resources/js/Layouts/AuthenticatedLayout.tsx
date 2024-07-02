@@ -7,7 +7,7 @@ export default function Authenticated({
     children
 }: PropsWithChildren<{ user: User; header?: ReactNode }>) {
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gray-200">
             <main>{children}</main>
         </div>
     )
