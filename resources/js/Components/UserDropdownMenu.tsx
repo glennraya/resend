@@ -3,7 +3,6 @@ import {
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuPortal,
     DropdownMenuSeparator,
     DropdownMenuSub,
@@ -19,23 +18,21 @@ const UserDropdownMenu = ({ user }: { user: User }) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                {/* <Button variant="outline">Open</Button> */}
                 <div className="flex cursor-pointer items-center gap-3">
                     <Avatar className="size-8">
                         <AvatarImage
-                            src="https://github.com/shadcn.png"
+                            src="/images/jsonfakery-avatar.svg"
                             alt="@glennraya"
                         />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarFallback>GR</AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col text-xs font-medium">
-                        <span>{user.name}</span>
-                        <span className='text-gray-500'>{user.email}</span>
-                    </div>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" collisionPadding={25}>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <div className="flex flex-col p-2 text-xs font-medium">
+                    <span className="text-sm">{user.name}</span>
+                    <span className="text-gray-500">{user.email}</span>
+                </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem>Profile</DropdownMenuItem>

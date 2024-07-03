@@ -3,7 +3,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: 'class',
+    darkMode: 'media',
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -61,7 +61,14 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             fontFamily: {
-                sans: ['Inter Tight', ...defaultTheme.fontFamily.sans],
+                // sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                sans: [
+                    '"Inter var", sans-serif',
+                    {
+                        fontFeatureSettings: '"cv11", "ss01"',
+                        fontVariationSettings: '"opsz" 32'
+                    }
+                ],
                 mono: ['JetBrainsMono', ...defaultTheme.fontFamily.mono]
             },
             keyframes: {
