@@ -6,10 +6,23 @@ import {
     PiWarehouseDuotone,
     PiUsersDuotone,
     PiHandTapDuotone,
-    PiChartPieDuotone
+    PiChartPieDuotone,
+    PiTrafficSignalDuotone,
+    PiMoneyWavyDuotone,
+    PiDatabaseDuotone,
+    PiNoteDuotone,
+    PiQuestionDuotone,
+    PiLifebuoyDuotone,
+    PiMegaphoneDuotone
 } from 'react-icons/pi'
 
-const menuItems = [
+type MenuItem = {
+    label: string
+    icon: JSX.Element | null
+    href?: string
+}
+
+const menuItems: MenuItem[] = [
     {
         label: 'Dashboard',
         icon: <PiLayoutDuotone className="size-5" />,
@@ -33,7 +46,7 @@ const menuItems = [
     {
         label: 'separator',
         icon: null,
-        href: null
+        href: undefined
     },
     {
         label: 'Subscribers',
@@ -53,12 +66,62 @@ const menuItems = [
     {
         label: 'separator',
         icon: null,
-        href: null
+        href: undefined
     },
     {
         label: 'Reports',
         icon: <PiChartPieDuotone className="size-5" />,
         href: '/reports'
+    },
+    {
+        label: 'Traffic Analysis',
+        icon: <PiTrafficSignalDuotone className="size-5" />,
+        href: '/traffic-analysis'
+    },
+    {
+        label: 'Sales Data',
+        icon: <PiMoneyWavyDuotone className="size-5" />,
+        href: '/sales-data'
+    },
+    {
+        label: 'separator',
+        icon: null,
+        href: undefined
+    },
+    {
+        label: 'Backup/Restore',
+        icon: <PiDatabaseDuotone className="size-5" />,
+        href: '/backup-restore'
+    },
+    {
+        label: 'System Logs',
+        icon: <PiNoteDuotone className="size-5" />,
+        href: '/system-logs'
+    },
+    {
+        label: 'separator',
+        icon: null,
+        href: undefined
+    },
+    {
+        label: 'Help Center',
+        icon: <PiLifebuoyDuotone className="size-5" />,
+        href: '/help-support'
+    },
+    {
+        label: 'FAQ',
+        icon: <PiQuestionDuotone className="size-5" />,
+        href: '/faq'
+    },
+    {
+        label: 'separator',
+        icon: null,
+        href: undefined
+    },
+    {
+        label: 'User Feedback',
+        icon: <PiMegaphoneDuotone className="size-5" />,
+        href: '/user-feedback'
     }
 ]
 

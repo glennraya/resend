@@ -20,7 +20,7 @@ const SearchButton = ({ className = '' }: { className: string }) => {
                     <circle cx="11" cy="11" r="6"></circle>
                 </svg>
                 <span className="flex-auto">Search...</span>
-                <kbd className="rounded-md border border-gray-300 bg-white px-2 py-1 font-sans text-xs font-semibold shadow-sm">
+                <kbd className="rounded-md border border-gray-300 bg-white px-2 py-1 font-sans text-xs font-semibold shadow-sm dark:border-gray-800 dark:bg-gray-800">
                     <abbr
                         title="Command"
                         className="text-gray-500 no-underline"
