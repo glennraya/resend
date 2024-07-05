@@ -18,8 +18,8 @@ import {
 
 type MenuItem = {
     label: string
-    icon: JSX.Element | null
-    href?: string
+    icon: React.JSX.Element | null
+    href?: string | null
 }
 
 const menuItems: MenuItem[] = [
@@ -45,8 +45,8 @@ const menuItems: MenuItem[] = [
     },
     {
         label: 'separator',
-        icon: null,
-        href: undefined
+        icon: null
+        // href: undefined
     },
     {
         label: 'Subscribers',
@@ -65,8 +65,8 @@ const menuItems: MenuItem[] = [
     },
     {
         label: 'separator',
-        icon: null,
-        href: undefined
+        icon: null
+        // href: undefined
     },
     {
         label: 'Reports',
@@ -85,8 +85,8 @@ const menuItems: MenuItem[] = [
     },
     {
         label: 'separator',
-        icon: null,
-        href: undefined
+        icon: null
+        // href: undefined
     },
     {
         label: 'Backup/Restore',
@@ -100,8 +100,8 @@ const menuItems: MenuItem[] = [
     },
     {
         label: 'separator',
-        icon: null,
-        href: undefined
+        icon: null
+        // href: undefined
     },
     {
         label: 'Help Center',
@@ -115,8 +115,8 @@ const menuItems: MenuItem[] = [
     },
     {
         label: 'separator',
-        icon: null,
-        href: undefined
+        icon: null
+        // href: undefined
     },
     {
         label: 'User Feedback',

@@ -1,4 +1,4 @@
-import { useState, PropsWithChildren, ReactNode } from 'react'
+import { PropsWithChildren, ReactNode } from 'react'
 import { User } from '@/types'
 import { Button } from '@/Components/ui/button'
 import { Badge } from '@/Components/ui/badge'
@@ -35,31 +35,32 @@ export default function Authenticated({
                                     className="size-6 dark:text-white"
                                 />
 
-                                <h1 className="font-bold">PoorMan v1.0</h1>
+                                <h1 className="font-bold">PoorManDash v1.0</h1>
                             </header>
 
                             {/* Main navigation */}
                             <nav className="flex flex-col gap-y-1 overflow-y-scroll py-4 text-sm font-medium xl:h-[85%] 2xl:h-auto">
-                                {menuItems.map((menu, index) => (
-                                    <>
-                                        {menu.label === 'separator' ? (
-                                            <div className="my-2 w-full border-t border-gray-200 dark:border-gray-800"></div>
-                                        ) : (
-                                            <Link
-                                                key={index}
-                                                href={menu.href ?? '#'}
-                                                className={`mx-3 flex items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 ${url === menu.href ? 'bg-black text-white hover:bg-black' : 'dark:hover:bg-gray-700'}`}
-                                            >
-                                                {menu.icon}
-                                                <span>{menu.label}</span>
-                                            </Link>
-                                        )}
-                                    </>
-                                ))}
+                                {menuItems.map((menu, index) =>
+                                    menu.label === 'separator' ? (
+                                        <div
+                                            key={`separator-${index}`}
+                                            className="my-2 w-full border-t border-gray-200 dark:border-gray-800"
+                                        ></div>
+                                    ) : (
+                                        <Link
+                                            key={`menu-${index}`}
+                                            href={menu.href ?? '#'}
+                                            className={`mx-3 flex items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 ${url === menu.href ? 'bg-black text-white hover:bg-black' : 'dark:hover:bg-gray-700'}`}
+                                        >
+                                            {menu.icon}
+                                            <span>{menu.label}</span>
+                                        </Link>
+                                    )
+                                )}
                             </nav>
                         </div>
                         <div className="flex justify-start p-4 text-xs text-gray-400 dark:text-gray-600">
-                            <span>PoorMan v1.0</span>
+                            <span>PoorManDash v1.0</span>
                         </div>
                     </div>
 
@@ -111,7 +112,7 @@ export default function Authenticated({
                             <div className="flex items-center gap-2">
                                 <PiCurrencyCircleDollarDuotone className="size-4" />
                                 <span className="font-mono text-xs font-medium">
-                                    Today's Sale: $20,298.75
+                                    Today's Sale: $3,298.75
                                 </span>
                             </div>
 

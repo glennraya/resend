@@ -62,14 +62,12 @@ export default {
             },
             fontFamily: {
                 // sans: ['Inter', ...defaultTheme.fontFamily.sans],
-                sans: [
-                    '"Inter var", sans-serif',
-                    {
-                        fontFeatureSettings: '"cv11", "ss01"',
-                        fontVariationSettings: '"opsz" 32'
-                    }
-                ],
-                mono: ['JetBrainsMono', ...defaultTheme.fontFamily.mono]
+                sans: ['"GeistVF", sans-serif'],
+                mono: [
+                    'GeistMonoVF',
+                    'JetBrainsMono',
+                    ...defaultTheme.fontFamily.mono
+                ]
             },
             keyframes: {
                 'accordion-down': {
