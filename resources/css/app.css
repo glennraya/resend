@@ -80,3 +80,19 @@
 .container-shadow {
     @apply shadow-[0px_1px_3px_rgba(0,0,0,.1)];
 }
+
+.chart-bar {
+    stop-color: theme('colors.gradient-start-light');
+}
+.chart-bar:nth-of-type(2) {
+    stop-color: theme('colors.gradient-end-light');
+}
+
+@media (prefers-color-scheme: dark) {
+    .chart-bar {
+        stop-color: theme('colors.gradient-start-dark');
+    }
+    .chart-bar:nth-of-type(2) {
+        stop-color: theme('colors.gradient-end-dark');
+    }
+}

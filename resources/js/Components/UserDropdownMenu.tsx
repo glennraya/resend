@@ -13,27 +13,36 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/Components/ui/avatar'
 import { router } from '@inertiajs/react'
 import { User } from '@/types'
+import { PiArrowDownBold } from 'react-icons/pi'
+import { useState } from 'react'
 
 const UserDropdownMenu = ({ user }: { user: User }) => {
+    const [dropDownOpen, setDropDownOpen] = useState(false)
+    const toggleDropdown = () => {
+        setDropDownOpen(dropDownOpen => !dropDownOpen)
+    }
+
     return (
-        <DropdownMenu>
+        <DropdownMenu onOpenChange={() => toggleDropdown()}>
             <DropdownMenuTrigger asChild>
-                <div className="flex cursor-pointer items-center gap-3">
+                <div className="flex cursor-pointer items-center">
                     <Avatar className="size-8">
                         <AvatarImage
-                            src="/images/jsonfakery-avatar.svg"
+                            src="/images/avatar.jpg"
                             alt="@glennraya"
                         />
                         <AvatarFallback>GR</AvatarFallback>
                     </Avatar>
+                    <div className="flex flex-col p-2 text-xs font-medium">
+                        <span className="text-sm">{user.name}</span>
+                        <span className="text-gray-400">{user.email}</span>
+                    </div>
+                    <PiArrowDownBold
+                        className={`${dropDownOpen ? 'rotate-180' : null}`}
+                    />
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" collisionPadding={25}>
-                <div className="flex flex-col p-2 text-xs font-medium">
-                    <span className="text-sm">{user.name}</span>
-                    <span className="text-gray-500">{user.email}</span>
-                </div>
-                <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem>Profile</DropdownMenuItem>
                     <DropdownMenuItem>Billing</DropdownMenuItem>

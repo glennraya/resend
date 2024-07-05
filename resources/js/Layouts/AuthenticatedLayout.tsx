@@ -105,14 +105,16 @@ export default function Authenticated({
                             <div className="flex items-center gap-2">
                                 <PiUsersFourDuotone className="size-4" />
                                 <span className="font-mono text-xs font-medium">
-                                    Users Online: 1,455
+                                    Users Online:{' '}
+                                    <span className="font-bold">1,455</span>
                                 </span>
                             </div>
 
                             <div className="flex items-center gap-2">
                                 <PiCurrencyCircleDollarDuotone className="size-4" />
                                 <span className="font-mono text-xs font-medium">
-                                    Today's Sale: $3,298.75
+                                    Today's Sale:{' '}
+                                    <span className="font-bold">$3,298.75</span>
                                 </span>
                             </div>
 
@@ -122,7 +124,7 @@ export default function Authenticated({
                                     System Status:{' '}
                                     <Badge
                                         variant="default"
-                                        className="bg-green-500"
+                                        className="bg-green-500 font-bold"
                                     >
                                         Operational
                                     </Badge>

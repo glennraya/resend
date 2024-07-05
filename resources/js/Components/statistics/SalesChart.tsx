@@ -42,8 +42,8 @@ const SalesChart = () => {
                             x2="0"
                             y2="1"
                         >
-                            <stop offset="0%" stopColor="#cbd5e1" />
-                            <stop offset="100%" stopColor="#94a3b8" />
+                            <stop offset="0%" className="chart-bar" />
+                            <stop offset="100%" className="chart-bar" />
                         </linearGradient>
                     </defs>
                 </svg>

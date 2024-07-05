@@ -21,6 +21,10 @@ export default {
         },
         extend: {
             colors: {
+                'gradient-start-light': '#cbd5e1',
+                'gradient-end-light': '#94a3b8',
+                'gradient-start-dark': '#4b5563',
+                'gradient-end-dark': '#1f2937',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
