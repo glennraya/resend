@@ -101,7 +101,7 @@ export default function Authenticated({
                         <main className="flex flex-col">{children}</main>
 
                         {/* Footer */}
-                        <div className="absolute bottom-0 right-0 z-10 flex h-12 w-full items-center justify-between border-t border-gray-200 px-8 dark:border-gray-800">
+                        <div className="absolute bottom-0 right-0 z-10 flex h-12 w-full items-center justify-between border-t border-gray-200 bg-white px-8 dark:border-gray-800 dark:bg-gray-900">
                             <div className="flex items-center gap-2">
                                 <PiUsersFourDuotone className="size-4" />
                                 <span className="font-mono text-xs font-medium">

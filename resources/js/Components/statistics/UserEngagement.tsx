@@ -9,7 +9,7 @@ import { PiUserSoundDuotone } from 'react-icons/pi'
 
 const UserEngagement = () => {
     return (
-        <Card className="transition duration-300 ease-linear hover:bg-gray-50">
+        <Card className="transition duration-300 ease-linear hover:bg-gray-50 dark:hover:bg-gray-800">
             <CardHeader>
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>1,329</span>
