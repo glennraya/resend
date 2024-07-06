@@ -1,4 +1,4 @@
-const SearchButton = ({ className = '' }: { className: string }) => {
+const SearchButton = ({ className = '' }: { className?: string }) => {
     return (
         <div className={className}>
             <button

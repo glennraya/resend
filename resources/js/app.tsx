@@ -1,6 +1,5 @@
 import './bootstrap'
 import '../css/app.css'
-
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
@@ -11,7 +10,7 @@ import React from 'react'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
-function AppWrapper({ App, props }) {
+function AppWrapper({ App, props }: { App: any; props: any }) {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
     const theme = React.useMemo(
         () =>

@@ -69,11 +69,11 @@ export default function Authenticated({
                     </div>
 
                     {/* Main contents */}
-                    <div className="relative flex w-full overflow-hidden flex-col rounded-e-xl border-b border-e border-r border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                    <div className="relative flex w-full flex-col overflow-hidden rounded-e-xl border-b border-e border-r border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
                         <div className="flex h-16 w-full items-center justify-between border-b border-gray-200 px-8 dark:border-gray-800">
                             {header}
                             <div className="flex w-80 items-center">
-                                <SearchButton className="" />
+                                <SearchButton />
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="mr-4 flex gap-2">

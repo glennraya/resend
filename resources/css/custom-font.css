@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'JetBrainsMono';
     src:
-        url('/fonts/jetbrains_mono/jetbrainsmono-regular-webfont.woff2')
+        url('../fonts/jetbrains_mono/jetbrainsmono-regular-webfont.woff2')
             format('woff2'),
-        url('/fonts/jetbrains_mono/jetbrainsmono-regular-webfont.woff')
+        url('../fonts/jetbrains_mono/jetbrainsmono-regular-webfont.woff')
             format('woff');
 }
 
 @font-face {
     font-family: 'GeistVF';
     src:
-        url('/fonts/geist_sans/GeistVF.woff2') format('woff2'),
-        url('/fonts/geist_sans/GeistVF.woff') format('woff');
+        url('../fonts/geist_sans/GeistVF.woff2') format('woff2'),
+        url('../fonts/geist_sans/GeistVF.woff') format('woff');
     /* font-weight: normal;
     font-style: normal; */
 }
@@ -19,6 +19,6 @@
 @font-face {
     font-family: 'GeistMonoVF';
     src:
-        url('/fonts/geist_mono/GeistMonoVF.woff2') format('woff2'),
-        url('/fonts/geist_mono/GeistMonoVF.woff') format('woff');
+        url('../fonts/geist_mono/GeistMonoVF.woff2') format('woff2'),
+        url('../fonts/geist_mono/GeistMonoVF.woff') format('woff');
 }

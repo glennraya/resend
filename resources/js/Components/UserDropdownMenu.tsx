@@ -38,7 +38,7 @@ const UserDropdownMenu = ({ user }: { user: User }) => {
                         <span className="text-gray-400">{user.email}</span>
                     </div>
                     <PiArrowDownBold
-                        className={`${dropDownOpen ? 'rotate-180' : null}`}
+                        className={`transition duration-300 ease-in-out ${dropDownOpen ? 'rotate-180' : 'rotate-0'}`}
                     />
                 </div>
             </DropdownMenuTrigger>
