@@ -1,12 +1,5 @@
 import { Head } from '@inertiajs/react'
 import { PageProps } from '@/types'
-import {
-    Card,
-    CardDescription,
-    CardContent,
-    CardHeader,
-    CardTitle
-} from '@/Components/ui/card'
 import Subscriptions from '@/Components/statistics/Subscriptions'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
 import MonthlyRevenue from '@/Components/statistics/MonthlyRevenue'
