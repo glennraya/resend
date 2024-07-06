@@ -13,6 +13,7 @@ import {
 import menuItems from '@/menus'
 import UserDropdownMenu from '@/Components/UserDropdownMenu'
 import SearchButton from '@/Components/SearchButton'
+import SearchMenu from '@/Components/SearchMenu'
 
 export default function Authenticated({
     user,
@@ -22,7 +23,7 @@ export default function Authenticated({
     const { url } = usePage()
 
     return (
-        <div className="min-h-screen bg-gray-200 dark:bg-black">
+        <div className="min-h-dvh bg-gray-200 dark:bg-black">
             <div className="flex p-3 2xl:h-screen">
                 <div className="flex w-full rounded-xl shadow-sm dark:bg-gray-900">
                     {/* Sidebar */}
@@ -40,6 +41,9 @@ export default function Authenticated({
 
                             {/* Main navigation */}
                             <nav className="flex flex-col gap-y-1 overflow-y-scroll py-4 text-sm font-medium xl:h-[85%] 2xl:h-auto">
+                                <div className="mb-2 px-3">
+                                    <SearchMenu />
+                                </div>
                                 {menuItems.map((menu, index) =>
                                     menu.label === 'separator' ? (
                                         <div
@@ -65,7 +69,7 @@ export default function Authenticated({
                     </div>
 
                     {/* Main contents */}
-                    <div className="relative flex w-full flex-col rounded-e-xl border-b border-e border-r border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                    <div className="relative flex w-full overflow-hidden flex-col rounded-e-xl border-b border-e border-r border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
                         <div className="flex h-16 w-full items-center justify-between border-b border-gray-200 px-8 dark:border-gray-800">
                             {header}
                             <div className="flex w-80 items-center">
@@ -131,6 +135,7 @@ export default function Authenticated({
                                 </span>
                             </div>
                         </div>
+                        {/* End of footer */}
                     </div>
                 </div>
             </div>

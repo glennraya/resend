@@ -21,7 +21,7 @@ const SalesChart = () => {
     const salesData = [500, 700, 300, 1250, 600, 900, 97]
 
     return (
-        <Card className="w-full transition duration-300 ease-linear hover:bg-gray-50 dark:hover:bg-gray-800">
+        <Card className="w-full transition duration-300 ease-linear">
             <CardHeader>
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Sales Overview</span>

@@ -19,8 +19,8 @@ import { User } from '@/types'
 
 const SentEmails = ({ users }: { users: User[] }) => {
     return (
-        <Card className="h-[600px] w-full overflow-hidden hover:bg-gray-50 dark:hover:bg-gray-800">
-            <CardHeader>
+        <Card className="relative max-h-[600px] w-full overflow-hidden">
+            <CardHeader className="-mb-3">
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Task Emails for Developers</span>
                     <span>
@@ -31,15 +31,16 @@ const SentEmails = ({ users }: { users: User[] }) => {
                     Sent project task emails to developers.
                 </CardDescription>
             </CardHeader>
-            <CardContent className="max-h-[80%] overflow-y-scroll scroll-smooth">
-                <Table>
+            <CardContent className="relative max-h-[80%] overflow-y-scroll scroll-smooth">
+                <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-black"></div>
+                <Table className="h-full">
                     <TableHeader>
                         <TableRow>
                             <TableHead>Member</TableHead>
                             {/* <TableHead className="hidden sm:table-cell">
                                 Role
                             </TableHead> */}
-                            <TableHead className="hidden sm:table-cell">
+                            <TableHead className="hidden text-right sm:table-cell">
                                 Status
                             </TableHead>
                         </TableRow>
@@ -58,7 +59,7 @@ const SentEmails = ({ users }: { users: User[] }) => {
                                 {/* <TableCell className="hidden sm:table-cell">
                                 Fullstack Web Developer
                             </TableCell> */}
-                                <TableCell className="hidden sm:table-cell">
+                                <TableCell className="hidden text-right sm:table-cell">
                                     <Badge
                                         className="text-xs"
                                         variant="secondary"
@@ -70,6 +71,7 @@ const SentEmails = ({ users }: { users: User[] }) => {
                         ))}
                     </TableBody>
                 </Table>
+                <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-black"></div>
             </CardContent>
         </Card>
     )

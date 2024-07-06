@@ -23,15 +23,15 @@ export default function Dashboard({ auth, users }: PageProps) {
         >
             <Head title="Dashboard" />
 
-            <div className="flex h-[800px] flex-col gap-4 py-4">
-                <div className="grid h-full w-full grid-cols-4 gap-4 px-8">
+            <div className="flex flex-col gap-4 overflow-y-scroll scroll-smooth py-4 2xl:h-[900px]">
+                <div className="grid w-full grow-0 grid-cols-4 gap-4 px-8">
                     <MonthlyRevenue />
                     <UserEngagement />
                     <Applicants />
                     <Subscriptions />
                 </div>
 
-                <div className="grid w-full grid-cols-5 gap-4 px-8">
+                <div className="col-span-5 grid w-full grid-cols-5 gap-4 px-8">
                     <div className="col-span-3 flex h-[600px]">
                         <SalesChart />
                     </div>
