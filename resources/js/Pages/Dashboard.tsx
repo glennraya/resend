@@ -16,7 +16,7 @@ export default function Dashboard({ auth, users }: PageProps) {
         >
             <Head title="Dashboard" />
 
-            <div className="flex flex-col gap-4 overflow-y-scroll scroll-smooth py-4 2xl:h-[900px]">
+            <div className="flex flex-col gap-4 overflow-y-scroll scroll-smooth py-4 2xl:h-[1024px]">
                 <div className="grid w-full grow-0 grid-cols-4 gap-4 px-8">
                     <MonthlyRevenue />
                     <UserEngagement />

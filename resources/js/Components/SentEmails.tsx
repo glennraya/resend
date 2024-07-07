@@ -20,7 +20,7 @@ import { User } from '@/types'
 
 const SentEmails = ({ users }: { users: User[] }) => {
     return (
-        <Card className="relative max-h-[600px] w-full overflow-hidden">
+        <Card className="relative h-fit w-full overflow-hidden">
             <CardHeader className="-mb-3">
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Task Emails for Developers</span>
@@ -33,7 +33,7 @@ const SentEmails = ({ users }: { users: User[] }) => {
                 </CardDescription>
             </CardHeader>
             <CardContent className="relative max-h-[80%] overflow-y-scroll scroll-smooth">
-                <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-black"></div>
+                <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-[hsl(222.2_84%_4.9%)]"></div>
                 <Table className="h-full">
                     <TableHeader>
                         <TableRow>
@@ -72,7 +72,7 @@ const SentEmails = ({ users }: { users: User[] }) => {
                         ))}
                     </TableBody>
                 </Table>
-                <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-black"></div>
+                <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-[hsl(222.2_84%_4.9%)]"></div>
             </CardContent>
         </Card>
     )

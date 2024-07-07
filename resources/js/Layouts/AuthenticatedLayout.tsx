@@ -82,7 +82,7 @@ export default function Authenticated({
                                         size="icon"
                                         className="relative rounded-full"
                                     >
-                                        <span className="absolute -right-1 -top-3 flex size-6 items-center justify-center rounded-full border-2 border-white bg-red-600 text-xs font-bold text-white dark:border-gray-800">
+                                        <span className="absolute -right-1 -top-2 flex size-6 items-center justify-center rounded-full border-2 border-white bg-red-600 text-xs font-bold text-white dark:border-gray-800">
                                             5
                                         </span>
                                         <PiChatCenteredDotsFill className="size-8" />
@@ -92,7 +92,7 @@ export default function Authenticated({
                                         size="icon"
                                         className="relative rounded-full"
                                     >
-                                        <span className="absolute -right-1 -top-3 flex size-6 items-center justify-center rounded-full border-2 border-white bg-red-600 text-xs font-bold text-white dark:border-gray-800">
+                                        <span className="absolute -right-1 -top-2 flex size-6 items-center justify-center rounded-full border-2 border-white bg-red-600 text-xs font-bold text-white dark:border-gray-800">
                                             8
                                         </span>
                                         <PiBellFill className="size-8" />

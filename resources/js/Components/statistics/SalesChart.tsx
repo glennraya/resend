@@ -38,7 +38,7 @@ const chartData = [
 
 const SalesChart = () => {
     return (
-        <Card className="w-full transition duration-300 ease-linear">
+        <Card className="w-full h-fit transition duration-300 ease-linear">
             <CardHeader>
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Subscription Overview</span>
