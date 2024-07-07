@@ -24,19 +24,19 @@ export default function Authenticated({
 
     return (
         <div className="min-h-dvh bg-gray-200 dark:bg-black">
-            <div className="flex p-3 2xl:h-screen">
+            <div className="flex p-3 2xl:h-dvh">
                 <div className="flex w-full rounded-xl shadow-sm dark:bg-gray-900">
                     {/* Sidebar */}
                     <div className="flex h-full w-96 flex-col justify-between rounded-s-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
                         <div className="flex flex-col">
-                            <header className="flex h-16 items-center justify-center gap-2 border-b border-gray-200 dark:border-gray-800">
+                            <header className="flex h-20 shrink-0 items-center justify-center gap-2 border-b border-gray-200 dark:border-gray-800">
                                 <img
                                     src="/images/sample-logo.svg"
                                     alt="Logo"
                                     className="size-6 dark:text-white"
                                 />
 
-                                <h1 className="font-bold">PoorManDash v1.0</h1>
+                                <h1 className="font-bold">Untitled Admin v1.0</h1>
                             </header>
 
                             {/* Main navigation */}
@@ -64,13 +64,15 @@ export default function Authenticated({
                             </nav>
                         </div>
                         <div className="flex justify-start p-4 text-xs text-gray-400 dark:text-gray-600">
-                            <span>PoorManDash v1.0</span>
+                            <span>Untitled Admin v1.0</span>
                         </div>
                     </div>
+                    {/* End of sidebar */}
 
                     {/* Main contents */}
                     <div className="relative flex w-full flex-col overflow-hidden rounded-e-xl border-b border-e border-r border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
-                        <div className="flex h-16 w-full items-center justify-between border-b border-gray-200 px-8 dark:border-gray-800">
+                        {/* Main header */}
+                        <div className="flex h-20 w-full shrink-0 items-center justify-between border-b border-gray-200 px-8 dark:border-gray-800">
                             {header}
                             <div className="flex w-80 items-center">
                                 <SearchButton />
@@ -97,15 +99,20 @@ export default function Authenticated({
                                         </span>
                                         <PiBellFill className="size-8" />
                                     </Button>
-                                </div>
+                                </div>{' '}
                                 <UserDropdownMenu user={user} />
                             </div>
                         </div>
+                        {/* End of main header */}
 
-                        <main className="flex flex-col">{children}</main>
+                        <main className="relative flex grow flex-col overflow-y-scroll pb-12">
+                            <div className="absolute left-0 top-0 h-4 w-full bg-gradient-to-b from-gray-900"></div>
+                            {children}
+                        </main>
 
                         {/* Footer */}
                         <div className="absolute bottom-0 right-0 z-10 flex h-12 w-full items-center justify-between border-t border-gray-200 bg-white px-8 dark:border-gray-800 dark:bg-gray-900">
+                            <div className="absolute -top-4 left-0 h-4 w-full border-b border-gray-200 bg-gradient-to-t from-gray-900 dark:border-gray-800"></div>
                             <div className="flex items-center gap-2">
                                 <PiUsersFourDuotone className="size-4" />
                                 <span className="font-mono text-xs font-medium">

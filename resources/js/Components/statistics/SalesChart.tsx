@@ -46,7 +46,7 @@ const SalesChart = () => {
                         <PiCurrencyCircleDollarDuotone className="size-7" />
                     </span>
                 </CardTitle>
-                <CardDescription>Average Revenue per Month</CardDescription>
+                <CardDescription>Average subscription per month</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
