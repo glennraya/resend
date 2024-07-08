@@ -6,7 +6,7 @@
 return [
     'redirect_after_auth' => '/dashboard',
     'registration_show_password_same_screen' => true,
-    'registration_include_name_field' => false,
+    'registration_include_name_field' => true,
     'registration_include_password_confirmation_field' => true,
     'registration_require_email_verification' => false,
     'enable_branding' => true,

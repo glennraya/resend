@@ -2,6 +2,7 @@ export interface User {
     id: number;
     name: string;
     email: string;
+    task_checked_at: string;
     email_verified_at: string;
 }
 

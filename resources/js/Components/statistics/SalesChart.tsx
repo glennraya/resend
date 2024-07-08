@@ -33,12 +33,13 @@ const chartData = [
     { month: 'March', subscribed: 237, unsubscribed: 120 },
     { month: 'April', subscribed: 73, unsubscribed: 190 },
     { month: 'May', subscribed: 209, unsubscribed: 130 },
-    { month: 'June', subscribed: 214, unsubscribed: 140 }
+    { month: 'June', subscribed: 214, unsubscribed: 140 },
+    { month: 'July', subscribed: 32, unsubscribed: 2 }
 ]
 
 const SalesChart = () => {
     return (
-        <Card className="w-full h-fit transition duration-300 ease-linear">
+        <Card className="h-fit w-full transition duration-300 ease-linear">
             <CardHeader>
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Subscription Overview</span>
@@ -46,7 +47,9 @@ const SalesChart = () => {
                         <PiCurrencyCircleDollarDuotone className="size-7" />
                     </span>
                 </CardTitle>
-                <CardDescription>Average subscription per month</CardDescription>
+                <CardDescription>
+                    Average subscription per month
+                </CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
@@ -115,6 +118,7 @@ const SalesChart = () => {
                             fill="url(#fillUnsubscribed)"
                             fillOpacity={1}
                             stroke="var(--color-unsubscribed)"
+                            strokeWidth={2}
                             stackId="a"
                         />
                         <Area
@@ -123,6 +127,7 @@ const SalesChart = () => {
                             fill="url(#fillSubscribed)"
                             fillOpacity={1}
                             stroke="var(--color-subscribed)"
+                            strokeWidth={2}
                             stackId="a"
                         />
                     </AreaChart>

@@ -15,13 +15,25 @@ import {
     CardTitle
 } from '@/Components/ui/card'
 import { Badge } from '@/Components/ui/badge'
+import { Button } from '@/Components/ui/button'
 import { PiEnvelopeDuotone } from 'react-icons/pi'
 import { User } from '@/types'
 
 const SentEmails = ({ users }: { users: User[] }) => {
+    const sendEmail = async () => {
+        await axios
+            .post('/send-tasks-email')
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     return (
         <Card className="relative h-fit w-full overflow-hidden">
-            <CardHeader className="-mb-3">
+            <CardHeader>
                 <CardTitle className="flex items-center justify-between text-2xl font-bold">
                     <span>Task Emails for Developers</span>
                     <span>
@@ -32,9 +44,9 @@ const SentEmails = ({ users }: { users: User[] }) => {
                     Sent project task emails to developers.
                 </CardDescription>
             </CardHeader>
-            <CardContent className="relative max-h-[80%] overflow-y-scroll scroll-smooth">
-                <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-[hsl(222.2_84%_4.9%)]"></div>
-                <Table className="h-full">
+            <CardContent className="relative overflow-y-scroll scroll-smooth">
+                {/* <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-[hsl(222.2_84%_4.9%)]"></div> */}
+                <Table className="mb-4 h-full">
                     <TableHeader>
                         <TableRow>
                             <TableHead>Member</TableHead>
@@ -62,17 +74,35 @@ const SentEmails = ({ users }: { users: User[] }) => {
                             </TableCell> */}
                                 <TableCell className="hidden text-right sm:table-cell">
                                     <Badge
-                                        className="text-xs"
+                                        className={`text-xs ${user.task_checked_at !== null ? 'bg-gray-500 text-white' : null}`}
                                         variant="secondary"
                                     >
-                                        Unread
+                                        {user.task_checked_at === null
+                                            ? 'Unopened'
+                                            : 'Opened'}
                                     </Badge>
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-                <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-[hsl(222.2_84%_4.9%)]"></div>
+                <div className="flex justify-end gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        type="button"
+                        onClick={sendEmail}
+                    >
+                        Send Email
+                    </Button>
+                    <Button variant="outline" size="sm" type="button">
+                        Prev
+                    </Button>
+                    <Button variant="outline" size="sm" type="button">
+                        Next
+                    </Button>
+                </div>
+                {/* <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-[hsl(222.2_84%_4.9%)]"></div> */}
             </CardContent>
         </Card>
     )
