@@ -27,8 +27,19 @@ Route::get('/dashboard', function () {
 
 // Respond to Resend webhook event.
 Route::post('resend/webhook', function (Request $request) {
-    // broadcast(new WebhookReceived(Auth::user(), $request->toArray()));
-    return $request;
+    // return $request;
+    logger($request->data['to']);
+    $user = User::where('email', $request->data['to'])->first();
+
+    if ($user) {
+        // Update the timestamp
+        $user->task_checked_at = now();
+        $user->save();
+    }
+
+    $project_manager = User::where('role', '=', 'Project Manager')->first();
+
+    broadcast(new WebhookReceived($project_manager, $request->toArray()));
 });
 
 Route::middleware('auth')->group(function () {

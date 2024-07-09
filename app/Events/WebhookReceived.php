@@ -16,7 +16,7 @@ class WebhookReceived implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct(public User $user, array $webhook_payload)
+    public function __construct(public User $user, public array $webhook_payload)
     {
         //
     }
