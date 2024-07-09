@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -19,7 +18,7 @@ class UserSeeder extends Seeder
             'Software Engineer', 'DevOps', 'Database Analyst', 'Cyber Security Consultant', 'Project Manager',
             'System Architect', 'QA Engineer', 'Product Owner', 'UI/UX Designer', 'Scrum Master',
             'Data Scientist', 'Frontend Developer', 'Backend Developer', 'Mobile App Developer', 'Business Analyst',
-            'Cloud Solutions Architect', 'Machine Learning Engineer', 'Network Administrator', 'IT Support Specialist', 'Full Stack Developer'
+            'Cloud Solutions Architect', 'Machine Learning Engineer', 'Network Administrator', 'IT Support Specialist', 'Full Stack Developer',
         ];
 
         foreach ($roles as $index => $role) {

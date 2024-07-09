@@ -27,8 +27,6 @@ Route::get('/dashboard', function () {
 
 // Respond to Resend webhook event.
 Route::post('resend/webhook', function (Request $request) {
-    // return $request;
-    logger($request->data['to']);
     $user = User::where('email', $request->data['to'])->first();
 
     if ($user) {
