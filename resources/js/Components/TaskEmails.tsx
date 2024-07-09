@@ -6,6 +6,7 @@ import {
     TableHeader,
     TableRow
 } from '@/Components/ui/table'
+import { useToast } from '@/Components/ui/use-toast'
 
 import {
     Card,
@@ -18,18 +19,27 @@ import { Badge } from '@/Components/ui/badge'
 import { Button } from '@/Components/ui/button'
 import { PiEnvelopeDuotone } from 'react-icons/pi'
 import { User } from '@/types'
+import CustomTooltip from '@/Components/CustomTooltip'
+import { useEffect } from 'react'
 
-const SentEmails = ({ users }: { users: User[] }) => {
-    const sendEmail = async () => {
+const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
+    const sendEmail = async (email: string) => {
         await axios
-            .post('/send-tasks-email')
+            .post('/send-tasks-email', {
+                email: email
+            })
             .then(res => {
-                console.log(res)
+                toast({
+                    title: 'Sent!',
+                    description: 'Your email has been sent.'
+                })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
+
+    const { toast } = useToast()
 
     return (
         <Card className="relative h-fit w-full overflow-hidden">
@@ -45,14 +55,10 @@ const SentEmails = ({ users }: { users: User[] }) => {
                 </CardDescription>
             </CardHeader>
             <CardContent className="relative overflow-y-scroll scroll-smooth">
-                {/* <div className="sticky left-0 top-0 z-10 h-8 w-full bg-gradient-to-b from-white dark:from-[hsl(222.2_84%_4.9%)]"></div> */}
                 <Table className="mb-4 h-full">
                     <TableHeader>
                         <TableRow>
                             <TableHead>Member</TableHead>
-                            {/* <TableHead className="hidden sm:table-cell">
-                                Role
-                            </TableHead> */}
                             <TableHead className="hidden text-right sm:table-cell">
                                 Status
                             </TableHead>
@@ -69,32 +75,36 @@ const SentEmails = ({ users }: { users: User[] }) => {
                                         {user.email}
                                     </div>
                                 </TableCell>
-                                {/* <TableCell className="hidden sm:table-cell">
-                                Fullstack Web Developer
-                            </TableCell> */}
                                 <TableCell className="hidden text-right sm:table-cell">
-                                    <Badge
-                                        className={`text-xs ${user.task_checked_at !== null ? 'bg-gray-500 text-white' : null}`}
-                                        variant="secondary"
-                                    >
-                                        {user.task_checked_at === null
-                                            ? 'Unopened'
-                                            : 'Opened'}
-                                    </Badge>
+                                    <div className="flex items-center justify-end">
+                                        <CustomTooltip label="Send task email">
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                type="button"
+                                                onClick={() =>
+                                                    sendEmail(user.email)
+                                                }
+                                                className="mr-2"
+                                            >
+                                                <PiEnvelopeDuotone className="size-4" />
+                                            </Button>
+                                        </CustomTooltip>
+                                        <Badge
+                                            className={`text-xs ${user.task_checked_at !== null ? 'bg-gray-500 text-white' : null}`}
+                                            variant="secondary"
+                                        >
+                                            {user.task_checked_at === null
+                                                ? 'Unopened'
+                                                : 'Opened'}
+                                        </Badge>
+                                    </div>
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
                 <div className="flex justify-end gap-2">
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        type="button"
-                        onClick={sendEmail}
-                    >
-                        Send Email
-                    </Button>
                     <Button variant="outline" size="sm" type="button">
                         Prev
                     </Button>
@@ -102,10 +112,9 @@ const SentEmails = ({ users }: { users: User[] }) => {
                         Next
                     </Button>
                 </div>
-                {/* <div className="sticky -bottom-6 left-0 z-10 h-8 w-full bg-gradient-to-t from-white dark:from-[hsl(222.2_84%_4.9%)]"></div> */}
             </CardContent>
         </Card>
     )
 }
 
-export default SentEmails
+export default TaskEmails

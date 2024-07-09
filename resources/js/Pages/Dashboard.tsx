@@ -4,7 +4,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
 import MonthlyRevenue from '@/Components/statistics/MonthlyRevenue'
 import UserEngagement from '@/Components/statistics/UserEngagement'
 import SalesChart from '@/Components/statistics/SalesChart'
-import SentEmails from '@/Components/SentEmails'
+import TaskEmails from '@/Components/TaskEmails'
 
 export default function Dashboard({ auth, users }: PageProps) {
     return (
@@ -16,17 +16,15 @@ export default function Dashboard({ auth, users }: PageProps) {
 
             <div className="flex flex-col gap-4 overflow-y-scroll scroll-smooth py-4">
                 <div className="grid grid-cols-2 gap-4 px-8">
-                    <div className="grid w-full grid-cols-2 gap-4">
+                    <div className="grid w-full grid-flow-row auto-rows-max grid-cols-2 gap-4">
                         <MonthlyRevenue />
                         <UserEngagement />
                         <div className="col-span-2 flex">
                             <SalesChart />
                         </div>
-                        {/* <Applicants />
-                        <Subscriptions /> */}
                     </div>
 
-                    <SentEmails users={users} />
+                    <TaskEmails users={users} user={auth.user} />
                 </div>
             </div>
         </AuthenticatedLayout>

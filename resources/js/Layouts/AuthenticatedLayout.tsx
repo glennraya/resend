@@ -1,4 +1,5 @@
-import { PropsWithChildren, ReactNode } from 'react'
+import { Toaster } from '@/Components/ui/toaster'
+import { PropsWithChildren, ReactNode, useEffect } from 'react'
 import { User } from '@/types'
 import Navigation from '@/Components/Navigation'
 import Footer from '@/Components/Footer'
@@ -9,12 +10,18 @@ export default function Authenticated({
     header,
     children
 }: PropsWithChildren<{ user: User; header?: ReactNode }>) {
+    useEffect(() => {
+        Echo.private(`webhook.${user.id}`).listen('WebhookReceived', event => {
+            console.log(event)
+        })
+    }, [])
     return (
         <div className="min-h-dvh bg-gray-200 dark:bg-black">
+            <Toaster />
             <div className="flex p-3 2xl:h-dvh">
                 <div className="flex w-full rounded-xl shadow-sm dark:bg-gray-900">
                     {/* Sidebar */}
-                    <div className="flex h-full max-h-dvh w-96 flex-col justify-between overflow-y-auto rounded-s-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                    <div className="max-h-vh flex h-full w-96 flex-col justify-between overflow-y-auto rounded-s-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
                         <div className="flex flex-col">
                             <header className="flex h-20 shrink-0 items-center justify-center gap-2 border-b border-gray-200 dark:border-gray-800">
                                 <img
@@ -43,7 +50,7 @@ export default function Authenticated({
                         <AppHeader user={user} header={header} />
                         {/* End of main header */}
 
-                        <main className="relative flex grow flex-col overflow-y-scroll pb-12">
+                        <main className="relative flex grow flex-col overflow-y-auto pb-12">
                             <div className="absolute left-0 top-0 h-4 w-full bg-gradient-to-b from-white dark:from-gray-900"></div>
                             {children}
                         </main>

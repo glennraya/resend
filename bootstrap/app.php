@@ -18,7 +18,6 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->validateCsrfTokens(except: [
-            // 'https://msfck8phqp.sharedwithexpose.com/resend/*',
             '/resend/*',
         ]);
 

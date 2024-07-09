@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\WebhookReceived;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use App\Models\User;
@@ -24,8 +25,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', ['users' => $users]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('resend/webhook', function(Request $request) {
-    logger($request);
+// Respond to Resend webhook event.
+Route::post('resend/webhook', function (Request $request) {
+    // broadcast(new WebhookReceived(Auth::user(), $request->toArray()));
+    return $request;
 });
 
 Route::middleware('auth')->group(function () {
@@ -33,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Send the task email.
     Route::post('/send-tasks-email', [TaskController::class, 'sendEmail']);
 });
 
