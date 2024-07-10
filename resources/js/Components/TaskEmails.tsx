@@ -23,32 +23,10 @@ import CustomTooltip from '@/Components/CustomTooltip'
 import { useEffect, useState } from 'react'
 
 const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
-    const sendEmail = async (email: string) => {
-        await axios
-            .post('/send-tasks-email', {
-                email: email
-            })
-            .then(res => {
-                toast({
-                    title: 'Sent!',
-                    description: 'Your email has been sent.'
-                })
-            })
-            .catch(err => {
-                // console.log(err)
-            })
-    }
-
     const { toast } = useToast()
 
     const [members, setMembers] = useState<User[]>(users)
     const [updateEmail, setUpdateEmail] = useState<string>('')
-    useEffect(() => {
-        Echo.private(`webhook.${user.id}`).listen('WebhookReceived', event => {
-            setUpdateEmail(event.webhook_payload.data.to[0])
-        })
-    }, [])
-
     return (
         <Card className="relative h-fit w-full overflow-hidden">
             <CardHeader>
@@ -90,10 +68,7 @@ const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
                                                 variant="outline"
                                                 size="icon"
                                                 type="button"
-                                                onClick={() =>
-                                                    sendEmail(user.email)
-                                                }
-                                                className="mr-2"
+                                                className="mr-2 active:bg-gray-300"
                                             >
                                                 <PiEnvelopeDuotone className="size-4" />
                                             </Button>
