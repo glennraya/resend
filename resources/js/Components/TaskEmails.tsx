@@ -20,7 +20,7 @@ import { Button } from '@/Components/ui/button'
 import { PiEnvelopeDuotone } from 'react-icons/pi'
 import { User } from '@/types'
 import CustomTooltip from '@/Components/CustomTooltip'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
     const sendEmail = async (email: string) => {
@@ -40,6 +40,14 @@ const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
     }
 
     const { toast } = useToast()
+
+    const [members, setMembers] = useState<User[]>(users)
+    const [updateEmail, setUpdateEmail] = useState<string>('')
+    useEffect(() => {
+        Echo.private(`webhook.${user.id}`).listen('WebhookReceived', event => {
+            setUpdateEmail(event.webhook_payload.data.to[0])
+        })
+    }, [])
 
     return (
         <Card className="relative h-fit w-full overflow-hidden">
@@ -65,7 +73,7 @@ const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {users?.map(user => (
+                        {members?.data.map(user => (
                             <TableRow key={user.id}>
                                 <TableCell>
                                     <div className="font-medium">
@@ -91,12 +99,13 @@ const TaskEmails = ({ users, user }: { users: User[]; user: User }) => {
                                             </Button>
                                         </CustomTooltip>
                                         <Badge
-                                            className={`text-xs ${user.task_checked_at !== null ? 'bg-gray-500 text-white' : null}`}
+                                            className={`text-xs ${user.task_checked_at !== null || user.email === updateEmail ? 'bg-green-500 text-white hover:bg-green-500' : 'text-black'}`}
                                             variant="secondary"
                                         >
-                                            {user.task_checked_at === null
-                                                ? 'Unopened'
-                                                : 'Opened'}
+                                            {updateEmail === user.email ||
+                                            user.task_checked_at !== null
+                                                ? 'Clicked'
+                                                : 'Pending'}
                                         </Badge>
                                     </div>
                                 </TableCell>

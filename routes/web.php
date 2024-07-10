@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $users = User::where('id', '!=', Auth::id())->get();
+    $users = User::where('id', '!=', Auth::id())->simplePaginate(10);
 
     return Inertia::render('Dashboard', ['users' => $users]);
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,12 +30,11 @@ Route::post('resend/webhook', function (Request $request) {
     $user = User::where('email', $request->data['to'])->first();
 
     if ($user) {
-        // Update the timestamp
         $user->task_checked_at = now();
         $user->save();
     }
 
-    $project_manager = User::where('role', '=', 'Project Manager')->first();
+    $project_manager = User::where('role', 'Project Manager')->first();
 
     broadcast(new WebhookReceived($project_manager, $request->toArray()));
 });

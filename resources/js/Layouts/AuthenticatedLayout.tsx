@@ -10,11 +10,6 @@ export default function Authenticated({
     header,
     children
 }: PropsWithChildren<{ user: User; header?: ReactNode }>) {
-    useEffect(() => {
-        Echo.private(`webhook.${user.id}`).listen('WebhookReceived', event => {
-            console.log(event)
-        })
-    }, [])
     return (
         <div className="min-h-dvh bg-gray-200 dark:bg-black">
             <Toaster />
@@ -51,7 +46,7 @@ export default function Authenticated({
                         {/* End of main header */}
 
                         <main className="relative flex grow flex-col overflow-y-auto pb-12">
-                            <div className="absolute left-0 top-0 h-4 w-full bg-gradient-to-b from-white dark:from-gray-900"></div>
+                            <div className="absolute left-0 top-0 z-10 h-4 w-full bg-gradient-to-b from-white dark:from-gray-900"></div>
                             {children}
                         </main>
 
